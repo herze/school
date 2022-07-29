@@ -29,9 +29,15 @@
     @include('admin.body.sidebar')
 
     <!-- Content Wrapper. Contains page content -->
-    @yield('admin')
+    <div class="content-wrapper">
+        <div class="container-full">
+            <section class="content">
+                @yield('admin')
+            </section>
+        </div>
+    </div>
     <!-- /.content-wrapper -->
-    @include('admin.body.sidebar')
+    @include('admin.body.footer')
 
 </div>
 <!-- ./wrapper -->
@@ -48,6 +54,7 @@
 <script src="{{asset('backend/js/template.js')}}"></script>
 <script src="{{asset('backend/js/pages/dashboard.js')}}"></script>
 
+@yield('scripts')
 
 </body>
 </html>

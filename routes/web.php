@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::middleware([
@@ -29,3 +30,11 @@ Route::middleware([
 });
 
 Route::get('/admin/logout',[AdminController::class,'logout'])->name('admin.logout');
+//User Managent routes
+Route::prefix('users')->group(function(){
+    Route::get('/view',[UserController::class  ,'show'])->name('user.view');
+    Route::get('/create', [UserController::class,'create'])->name('user.create');
+    Route::post('/store', [UserController::class,'store'])->name('user.store');
+});
+
+
