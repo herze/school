@@ -25,7 +25,8 @@ class UserPostRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'email' => 'required|unique:users'
+            'email' => 'required|unique:users',
+            'password' => 'required_with:password_confirmation | same:password_confirmation',
         ];
     }
 }

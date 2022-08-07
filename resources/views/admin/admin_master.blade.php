@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="{{asset('backend/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('backend/css/skin_color.css')}}">
 
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+
 </head>
 
 <body class="hold-transition dark-skin sidebar-mini theme-primary fixed">
@@ -53,6 +55,28 @@
 <!-- Sunny Admin App -->
 <script src="{{asset('backend/js/template.js')}}"></script>
 <script src="{{asset('backend/js/pages/dashboard.js')}}"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    @if(\Illuminate\Support\Facades\Session::has('message'))
+         var type = "{{\Illuminate\Support\Facades\Session::get('alert-type','info')}}"
+        switch (type) {
+            case 'info':
+                toastr.info("{{\Illuminate\Support\Facades\Session::get('message')}}");
+                break;
+            case 'success':
+                toastr.success("{{\Illuminate\Support\Facades\Session::get('message')}}");
+                break;
+            case 'warning':
+                toastr.warning("{{\Illuminate\Support\Facades\Session::get('message')}}");
+                break;
+            case 'error':
+                toastr.error("{{\Illuminate\Support\Facades\Session::get('message')}}");
+                break;
+        }
+    @endif
+</script>
 
 @yield('scripts')
 

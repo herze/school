@@ -23,6 +23,7 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Name</th>
+                                <th>Role</th>
                                 <th>Email</th>
                                 <th>Create</th>
                                 <th>Updated</th>
@@ -34,11 +35,12 @@
                                 <tr>
                                     <td width="5%">{{$user->id}}</td>
                                     <td>{{$user->name}}</td>
+                                    <td>{{$user->usertype}}</td>
                                     <td>{{$user->email}}</td>
                                     <td>{{$user->created_at}}</td>
                                     <td>{{$user->updated_at}}</td>
                                     <td width="25%">
-                                        <a href="#" class="btn btn-info btn-sm">Editar</a>
+                                        <a href="{{route('user.edit',$user)}}" class="btn btn-info btn-sm">Editar</a>
                                         <a href="#" class="btn btn-danger btn-sm">Eliminar</a>
                                     </td>
                                 </tr>

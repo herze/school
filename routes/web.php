@@ -32,9 +32,11 @@ Route::middleware([
 Route::get('/admin/logout',[AdminController::class,'logout'])->name('admin.logout');
 //User Managent routes
 Route::prefix('users')->group(function(){
-    Route::get('/view',[UserController::class  ,'show'])->name('user.view');
+    Route::get('/',[UserController::class  ,'show'])->name('user.view');
     Route::get('/create', [UserController::class,'create'])->name('user.create');
     Route::post('/store', [UserController::class,'store'])->name('user.store');
+    Route::get('/{user}/edit', [UserController::class,'edit'])->name('user.edit');
+    Route::put('/{user}', [UserController::class,'edit'])->name('user.update');
 });
 
 
